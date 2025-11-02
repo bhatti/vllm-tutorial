@@ -1,0 +1,222 @@
+{
+  "dashboard": {
+    "title": "vLLM Production Overview",
+    "tags": ["vllm", "llm", "production"],
+    "timezone": "browser",
+    "schemaVersion": 16,
+    "version": 1,
+    "refresh": "10s",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Requests Per Second",
+        "type": "graph",
+        "gridPos": {"x": 0, "y": 0, "w": 12, "h": 8},
+        "targets": [
+          {
+            "expr": "rate(vllm_total_requests_total[1m])",
+            "legendFormat": "Total RPS",
+            "refId": "A"
+          },
+          {
+            "expr": "rate(vllm_successful_requests_total[1m])",
+            "legendFormat": "Successful RPS",
+            "refId": "B"
+          },
+          {
+            "expr": "rate(vllm_failed_requests_total[1m])",
+            "legendFormat": "Failed RPS",
+            "refId": "C"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Success Rate",
+        "type": "stat",
+        "gridPos": {"x": 12, "y": 0, "w": 6, "h": 4},
+        "targets": [
+          {
+            "expr": "(rate(vllm_successful_requests_total[5m]) / rate(vllm_total_requests_total[5m])) * 100",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"value": 0, "color": "red"},
+                {"value": 95, "color": "yellow"},
+                {"value": 99, "color": "green"}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 3,
+        "title": "Error Rate",
+        "type": "stat",
+        "gridPos": {"x": 18, "y": 0, "w": 6, "h": 4},
+        "targets": [
+          {
+            "expr": "(rate(vllm_failed_requests_total[5m]) / rate(vllm_total_requests_total[5m])) * 100",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"value": 0, "color": "green"},
+                {"value": 1, "color": "yellow"},
+                {"value": 5, "color": "red"}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 4,
+        "title": "Latency (P50, P95, P99)",
+        "type": "graph",
+        "gridPos": {"x": 0, "y": 8, "w": 12, "h": 8},
+        "targets": [
+          {
+            "expr": "vllm_latency_p50_ms",
+            "legendFormat": "P50",
+            "refId": "A"
+          },
+          {
+            "expr": "vllm_latency_p95_ms",
+            "legendFormat": "P95",
+            "refId": "B"
+          },
+          {
+            "expr": "vllm_latency_p99_ms",
+            "legendFormat": "P99",
+            "refId": "C"
+          }
+        ],
+        "yaxes": [
+          {"format": "ms", "label": "Latency"}
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Time to First Token (TTFT)",
+        "type": "graph",
+        "gridPos": {"x": 12, "y": 8, "w": 12, "h": 8},
+        "targets": [
+          {
+            "expr": "vllm_ttft_p50_ms",
+            "legendFormat": "P50",
+            "refId": "A"
+          },
+          {
+            "expr": "vllm_ttft_p95_ms",
+            "legendFormat": "P95",
+            "refId": "B"
+          },
+          {
+            "expr": "vllm_ttft_p99_ms",
+            "legendFormat": "P99",
+            "refId": "C"
+          }
+        ],
+        "yaxes": [
+          {"format": "ms", "label": "TTFT"}
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Tokens Per Second",
+        "type": "graph",
+        "gridPos": {"x": 0, "y": 16, "w": 12, "h": 8},
+        "targets": [
+          {
+            "expr": "rate(vllm_tokens_generated_total[1m])",
+            "legendFormat": "Tokens/sec",
+            "refId": "A"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "GPU Memory Usage",
+        "type": "graph",
+        "gridPos": {"x": 12, "y": 16, "w": 12, "h": 8},
+        "targets": [
+          {
+            "expr": "vllm_gpu_memory_used_gb",
+            "legendFormat": "Used",
+            "refId": "A"
+          },
+          {
+            "expr": "vllm_gpu_memory_total_gb",
+            "legendFormat": "Total",
+            "refId": "B"
+          }
+        ],
+        "yaxes": [
+          {"format": "decgbytes", "label": "Memory"}
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Cost Tracking",
+        "type": "graph",
+        "gridPos": {"x": 0, "y": 24, "w": 12, "h": 8},
+        "targets": [
+          {
+            "expr": "vllm_daily_cost_usd",
+            "legendFormat": "Daily Cost",
+            "refId": "A"
+          },
+          {
+            "expr": "vllm_daily_budget_usd",
+            "legendFormat": "Daily Budget",
+            "refId": "B"
+          }
+        ],
+        "yaxes": [
+          {"format": "currencyUSD", "label": "Cost"}
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Cost Per Request",
+        "type": "stat",
+        "gridPos": {"x": 12, "y": 24, "w": 6, "h": 4},
+        "targets": [
+          {
+            "expr": "rate(vllm_total_cost_usd[5m]) / rate(vllm_total_requests_total[5m])",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "currencyUSD"
+          }
+        }
+      },
+      {
+        "id": 10,
+        "title": "Model Distribution",
+        "type": "piechart",
+        "gridPos": {"x": 18, "y": 24, "w": 6, "h": 8},
+        "targets": [
+          {
+            "expr": "vllm_requests_by_model",
+            "legendFormat": "{{model}}",
+            "refId": "A"
+          }
+        ]
+      }
+    ]
+  }
+}

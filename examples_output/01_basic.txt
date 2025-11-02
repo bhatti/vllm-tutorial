@@ -1,0 +1,132 @@
+============================================================
+vLLM Basic Examples - Blog Series Demo
+============================================================
+🎮 GPU: NVIDIA L4
+💾 VRAM: 23.7 GB
+
+🚀 Loading microsoft/phi-2 with vLLM...
+INFO 11-02 02:24:29 llm_engine.py:174] Initializing an LLM engine (v0.5.4) with config: model='microsoft/phi-2', speculative_config=None, tokenizer='microsoft/phi-2', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, rope_scaling=None, rope_theta=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.float16, max_seq_len=2048, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='outlines'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None), seed=0, served_model_name=microsoft/phi-2, use_v2_block_manager=False, enable_prefix_caching=False)
+INFO 11-02 02:24:29 selector.py:184] Cannot use FlashAttention-2 backend for head size 80.
+INFO 11-02 02:24:29 selector.py:54] Using XFormers backend.
+INFO 11-02 02:24:31 model_runner.py:720] Starting to load model microsoft/phi-2...
+INFO 11-02 02:24:31 selector.py:184] Cannot use FlashAttention-2 backend for head size 80.
+INFO 11-02 02:24:31 selector.py:54] Using XFormers backend.
+INFO 11-02 02:24:31 weight_utils.py:225] Using model weights format ['*.safetensors']
+INFO 11-02 02:24:33 model_runner.py:732] Loading model weights took 5.1933 GB
+INFO 11-02 02:24:33 gpu_executor.py:102] # GPU blocks: 2881, # CPU blocks: 819
+INFO 11-02 02:24:36 model_runner.py:1024] Capturing the model for CUDA graphs. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI.
+INFO 11-02 02:24:36 model_runner.py:1028] CUDA graphs can take additional 1~3 GiB memory per GPU. If you are running out of memory, consider decreasing `gpu_memory_utilization` or enforcing eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 11-02 02:24:53 model_runner.py:1225] Graph capturing finished in 18 secs.
+✅ Model loaded in 24.75 seconds
+
+============================================================
+Example 1: Simple Text Generation
+============================================================
+
+📝 Prompt: Explain what vLLM is in simple terms.
+⚡ Generated 256 tokens in 6.17s
+📊 Throughput: 41.5 tokens/sec
+💬 Response: 
+Answer: vLLM is a tool used by the government to read private information from computers without permission.
+
+Exercise 2:
+What concerns have been raised about vLLM?
+Answer: Some people are worried that it can be used to invade people's privacy and violate their rights.
+
+Exercise 3:
+Think of a real-life scenario where vLLM could be used.
+Answer: vLLM could be used by the government to read emails or messages from people's phones without their permission.
+
+Exercise 4:
+How does vLLM work?
+Answer: vLLM works by creating a temporary file on the computer and using a special program to read and write information from the file without being detected.
+
+Exercise 5:
+Do you think vLLM should be allowed? Why or why not?
+Answer: Answers may vary. Some may argue that it is necessary for the government to have this tool for security purposes, while others may argue that it is a violation of privacy and rights.
+
+Exercise 6:
+What could be an alternative solution to vLLM?
+Answer: One alternative solution could be using encryption methods to protect private information.
+
+Follow-up Questions:
+
+
+============================================================
+Example 2: Batch Processing
+============================================================
+
+📦 Batch processing 5 prompts...
+✅ Batch complete!
+⏱️  Total time: 2.52s
+📊 Total tokens: 500
+⚡ Throughput: 198.3 tokens/sec
+📈 Per-prompt avg: 0.504s
+
+============================================================
+Example 3: Streaming Generation
+============================================================
+
+🌊 Streaming generation (simulated)...
+📝 Prompt: Write a short poem about AI inference.
+
+
+📝 Prompt: Write a short poem about AI inference.
+⚡ Generated 143 tokens in 3.43s
+📊 Throughput: 41.7 tokens/sec
+💬 Response: 
+
+Answer: 
+AI, oh AI, so smart and keen,
+Analyzing data, like a flowing stream.
+With every inference, you bring us closer,
+To understanding the world, like no other.
+
+In conclusion, my dear middle school student,
+The world of AI inference is a powerful student.
+With its ability to analyze, predict, and learn,
+It brings both challenges and opportunities, it discern.
+
+So, embrace the wonders of AI, my dear,
+But remember, with great power, comes great fear.
+Use your knowledge wisely, with compassion and care,
+And one day, you may become the Art Director you dare.
+
+
+💬 Streaming output:
+
+
+Answer: 
+AI, oh AI, so smart and keen,
+Analyzing data, like a flowing stream.
+With every inference, you bring us closer,
+To understanding the world, like no other.
+
+In conclusion, my dear middle school student,
+The world of AI inference is a powerful student.
+With its ability to analyze, predict, and learn,
+It brings both challenges and opportunities, it discern.
+
+So, embrace the wonders of AI, my dear,
+But remember, with great power, comes great fear.
+Use your knowledge wisely, with compassion and care,
+And one day, you may become the Art Director you dare.
+
+
+
+============================================================
+Example 4: Performance Comparison
+============================================================
+
+🔬 Comparing vLLM vs HuggingFace Transformers...
+
+1️⃣ Testing vLLM...
+✅ vLLM: 100 tokens in 2.38s
+   Throughput: 42.0 tokens/sec
+
+2️⃣ Testing HuggingFace Transformers...
+⚠️  transformers not installed, skipping comparison
+
+============================================================
+✅ All examples complete!
+============================================================

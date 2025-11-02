@@ -1,0 +1,141 @@
+# Prometheus Alert Rules for vLLM
+
+groups:
+  - name: vllm_performance
+    interval: 30s
+    rules:
+      # High error rate
+      - alert: HighErrorRate
+        expr: |
+          (
+            rate(vllm_failed_requests_total[5m]) /
+            rate(vllm_total_requests_total[5m])
+          ) > 0.05
+        for: 5m
+        labels:
+          severity: warning
+          component: vllm-server
+        annotations:
+          summary: "High error rate detected"
+          description: "Error rate is {{ $value | humanizePercentage }} (threshold: 5%)"
+
+      # High latency (P95)
+      - alert: HighLatencyP95
+        expr: vllm_latency_p95_ms > 1000
+        for: 5m
+        labels:
+          severity: warning
+          component: vllm-server
+        annotations:
+          summary: "High P95 latency detected"
+          description: "P95 latency is {{ $value }}ms (threshold: 1000ms)"
+
+      # TTFT too high
+      - alert: HighTimeToFirstToken
+        expr: vllm_ttft_p95_ms > 500
+        for: 5m
+        labels:
+          severity: warning
+          component: vllm-server
+        annotations:
+          summary: "High time to first token"
+          description: "P95 TTFT is {{ $value }}ms (threshold: 500ms)"
+
+      # Low throughput
+      - alert: LowThroughput
+        expr: rate(vllm_tokens_generated_total[5m]) < 100
+        for: 10m
+        labels:
+          severity: warning
+          component: vllm-server
+        annotations:
+          summary: "Low token generation throughput"
+          description: "Throughput is {{ $value }} tokens/sec (threshold: 100)"
+
+  - name: vllm_cost
+    interval: 60s
+    rules:
+      # Budget exceeded
+      - alert: DailyBudgetExceeded
+        expr: vllm_daily_cost_usd > 50
+        for: 5m
+        labels:
+          severity: critical
+          component: cost-tracking
+        annotations:
+          summary: "Daily budget exceeded"
+          description: "Daily cost is ${{ $value }} (budget: $50)"
+
+      # Budget warning (80%)
+      - alert: BudgetWarning
+        expr: vllm_daily_cost_usd > 40
+        for: 10m
+        labels:
+          severity: warning
+          component: cost-tracking
+        annotations:
+          summary: "Daily budget at 80%"
+          description: "Daily cost is ${{ $value }} (80% of $50 budget)"
+
+  - name: vllm_health
+    interval: 30s
+    rules:
+      # Service down
+      - alert: VLLMServiceDown
+        expr: up{job="vllm-server"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          component: vllm-server
+        annotations:
+          summary: "vLLM service is down"
+          description: "vLLM server has been down for more than 2 minutes"
+
+      # High GPU memory usage
+      - alert: HighGPUMemoryUsage
+        expr: vllm_gpu_memory_used_gb / vllm_gpu_memory_total_gb > 0.95
+        for: 5m
+        labels:
+          severity: warning
+          component: gpu
+        annotations:
+          summary: "High GPU memory usage"
+          description: "GPU memory usage is {{ $value | humanizePercentage }} (threshold: 95%)"
+
+      # GPU OOM risks
+      - alert: GPUMemoryCritical
+        expr: vllm_gpu_memory_used_gb / vllm_gpu_memory_total_gb > 0.98
+        for: 2m
+        labels:
+          severity: critical
+          component: gpu
+        annotations:
+          summary: "GPU memory critical - OOM risk"
+          description: "GPU memory usage is {{ $value | humanizePercentage }}"
+
+  - name: vllm_business
+    interval: 120s
+    rules:
+      # Requests per second dropping
+      - alert: LowRequestRate
+        expr: rate(vllm_total_requests_total[5m]) < 1
+        for: 15m
+        labels:
+          severity: info
+          component: business-metrics
+        annotations:
+          summary: "Low request rate"
+          description: "Request rate is {{ $value }} req/sec (expected: >1)"
+
+      # Cost per request increasing
+      - alert: HighCostPerRequest
+        expr: |
+          rate(vllm_total_cost_usd[5m]) /
+          rate(vllm_total_requests_total[5m]) > 0.001
+        for: 10m
+        labels:
+          severity: warning
+          component: cost-tracking
+        annotations:
+          summary: "Cost per request increasing"
+          description: "Cost per request is ${{ $value }} (threshold: $0.001)"

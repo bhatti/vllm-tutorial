@@ -1,0 +1,5 @@
+model_name,framework,num_requests,total_input_tokens,total_output_tokens,total_tokens,inference_cost,infrastructure_cost,total_cost,cost_per_request,cost_per_1k_tokens,avg_latency_ms
+vLLM-Routed,vLLM,200,4400,5200,9600,0.0022275000000000025,0.17125,0.1734775,0.0008673875,0.01807057291666667,162.125
+phi-2,vLLM,200,4400,5200,9600,0.00096,0.09,0.09096,0.0004548,0.009475,99.0
+gpt-3.5-turbo,OpenAI,200,4400,5200,9600,0.01,0.0,0.01,5e-05,0.0010416666666666667,500.0
+gpt-4,OpenAI,200,4400,5200,9600,0.444,0.0,0.444,0.00222,0.04625,1000.0

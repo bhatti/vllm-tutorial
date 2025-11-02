@@ -1,0 +1,50 @@
+[
+  {
+    "framework": "vLLM",
+    "model_name": "microsoft/phi-2",
+    "batch_size": 1,
+    "seq_length": 256,
+    "memory_allocated_gb": 19.297,
+    "memory_reserved_gb": 19.467,
+    "memory_cached_gb": 0.0,
+    "max_memory_gb": 19.299,
+    "kv_cache_gb": 0.078,
+    "memory_efficiency_pct": 100.0
+  },
+  {
+    "framework": "vLLM",
+    "model_name": "microsoft/phi-2",
+    "batch_size": 1,
+    "seq_length": 512,
+    "memory_allocated_gb": 19.368,
+    "memory_reserved_gb": 19.549,
+    "memory_cached_gb": 0.0,
+    "max_memory_gb": 19.372,
+    "kv_cache_gb": 0.156,
+    "memory_efficiency_pct": 100.0
+  },
+  {
+    "framework": "vLLM",
+    "model_name": "microsoft/phi-2",
+    "batch_size": 4,
+    "seq_length": 256,
+    "memory_allocated_gb": 19.376,
+    "memory_reserved_gb": 19.568,
+    "memory_cached_gb": 0.0,
+    "max_memory_gb": 19.383,
+    "kv_cache_gb": 0.312,
+    "memory_efficiency_pct": 100.0
+  },
+  {
+    "framework": "vLLM",
+    "model_name": "microsoft/phi-2",
+    "batch_size": 8,
+    "seq_length": 256,
+    "memory_allocated_gb": 19.384,
+    "memory_reserved_gb": 19.586,
+    "memory_cached_gb": 0.0,
+    "max_memory_gb": 19.398,
+    "kv_cache_gb": 0.625,
+    "memory_efficiency_pct": 100.0
+  }
+]

@@ -1,0 +1,2 @@
+model_name,quantization,precision,compression_ratio,memory_allocated_gb,memory_saved_gb,memory_savings_pct,time_to_first_token_ms,inter_token_latency_ms,tokens_per_second,speedup_vs_baseline,total_time_seconds,num_tokens,gpu_name
+microsoft/phi-2,baseline,FP16,1.0,19.3,0.0,0.0,251.2,5.02,199.1,1.0,1.26,250,NVIDIA L4

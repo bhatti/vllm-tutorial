@@ -1,0 +1,5 @@
+framework,model_name,batch_size,seq_length,memory_allocated_gb,memory_reserved_gb,memory_cached_gb,max_memory_gb,kv_cache_gb,memory_efficiency_pct
+vLLM,microsoft/phi-2,1,256,19.297,19.467,0.0,19.299,0.078,100.0
+vLLM,microsoft/phi-2,1,512,19.368,19.549,0.0,19.372,0.156,100.0
+vLLM,microsoft/phi-2,4,256,19.376,19.568,0.0,19.383,0.312,100.0
+vLLM,microsoft/phi-2,8,256,19.384,19.586,0.0,19.398,0.625,100.0

@@ -1,0 +1,110 @@
+================================================================================
+Production Intelligent Routing with Cost Budgets
+================================================================================
+
+================================================================================
+Processing Test Requests
+================================================================================
+
+📝 Request 1: Simple factual query
+   Prompt: What is the capital of France?...
+
+✅ Routing Decision:
+   Model: phi-2
+   Complexity: simple
+   Est. Cost: $0.000006
+   Est. Latency: 50ms
+   Est. Tokens: 57
+   Budget Status: ok
+   Reasoning: Selected tiny tier for simple complexity
+
+📝 Request 2: Moderate analysis task
+   Prompt: Analyze the quarterly earnings report and provide key insigh...
+
+✅ Routing Decision:
+   Model: phi-2
+   Complexity: moderate
+   Est. Cost: $0.000031
+   Est. Latency: 50ms
+   Est. Tokens: 311
+   Budget Status: ok
+   Reasoning: Selected tiny tier for moderate complexity
+
+📝 Request 3: Critical complex analysis
+   Prompt: URGENT: Perform comprehensive risk analysis on the portfolio...
+
+✅ Routing Decision:
+   Model: phi-2
+   Complexity: critical
+   Est. Cost: $0.000102
+   Est. Latency: 50ms
+   Est. Tokens: 1021
+   Budget Status: ok
+   Reasoning: Selected tiny tier for critical complexity
+
+📝 Request 4: Low latency requirement
+   Prompt: Summarize this financial document....
+
+✅ Routing Decision:
+   Model: phi-2
+   Complexity: moderate
+   Est. Cost: $0.000021
+   Est. Latency: 50ms
+   Est. Tokens: 205
+   Budget Status: ok
+   Reasoning: Selected tiny tier for moderate complexity
+
+================================================================================
+📊 Router Metrics
+================================================================================
+{
+  "total_requests": 4,
+  "total_cost": 0.00015940000000000003,
+  "avg_cost_per_request": 3.9850000000000006e-05,
+  "complexity_distribution": {
+    "simple": 1,
+    "moderate": 2,
+    "complex": 0,
+    "critical": 1
+  },
+  "model_usage": {
+    "phi-2": 4,
+    "mistral-7b": 0,
+    "llama-13b": 0
+  },
+  "budget_violations": 0,
+  "daily_spend": 0.00015940000000000003,
+  "budget_remaining": 49.9998406,
+  "budget_utilization_pct": 0.00031880000000000005
+}
+
+================================================================================
+💰 Cost Analysis
+================================================================================
+Total requests: 4
+Total cost: $0.000159
+Average cost per request: $0.000040
+Budget utilization: 0.0%
+Budget remaining: $50.00
+Budget violations: 0
+
+================================================================================
+📈 Cost Projections
+================================================================================
+At 10,000 requests/day:
+  Daily cost: $0.40
+  Monthly cost: $11.96
+  Yearly cost: $143.46
+
+================================================================================
+💵 Cost Comparison
+================================================================================
+OpenAI API (estimated): $0.000996/request
+vLLM self-hosted: $0.000040/request
+Savings per request: $0.000956
+Monthly savings: $286.92
+Yearly savings: $3,443.04
+
+================================================================================
+✅ Example Complete!
+================================================================================

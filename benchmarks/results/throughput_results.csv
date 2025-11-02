@@ -1,0 +1,3 @@
+framework,model_name,batch_size,total_prompts,total_tokens,total_time_seconds,tokens_per_second,requests_per_second,avg_latency_ms,memory_used_gb
+vLLM,microsoft/phi-2,1,1,41,0.9873166084289551,41.52669938900381,1.0128463265610685,987.3166084289551,20.721747456
+vLLM,microsoft/phi-2,32,32,2968,3.1763100624084473,934.417592012256,10.074583202288474,99.25968945026398,21.194348544

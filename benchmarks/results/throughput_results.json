@@ -1,0 +1,26 @@
+[
+  {
+    "framework": "vLLM",
+    "model_name": "microsoft/phi-2",
+    "batch_size": 1,
+    "total_prompts": 1,
+    "total_tokens": 41,
+    "total_time_seconds": 0.9873166084289551,
+    "tokens_per_second": 41.52669938900381,
+    "requests_per_second": 1.0128463265610685,
+    "avg_latency_ms": 987.3166084289551,
+    "memory_used_gb": 20.721747456
+  },
+  {
+    "framework": "vLLM",
+    "model_name": "microsoft/phi-2",
+    "batch_size": 32,
+    "total_prompts": 32,
+    "total_tokens": 2968,
+    "total_time_seconds": 3.1763100624084473,
+    "tokens_per_second": 934.417592012256,
+    "requests_per_second": 10.074583202288474,
+    "avg_latency_ms": 99.25968945026398,
+    "memory_used_gb": 21.194348544
+  }
+]

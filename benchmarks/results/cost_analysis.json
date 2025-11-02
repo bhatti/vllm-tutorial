@@ -1,0 +1,58 @@
+{
+  "vLLM-Routed": {
+    "model_name": "vLLM-Routed",
+    "framework": "vLLM",
+    "num_requests": 200,
+    "total_input_tokens": 4400,
+    "total_output_tokens": 5200,
+    "total_tokens": 9600,
+    "inference_cost": 0.0022275000000000025,
+    "infrastructure_cost": 0.17125,
+    "total_cost": 0.1734775,
+    "cost_per_request": 0.0008673875,
+    "cost_per_1k_tokens": 0.01807057291666667,
+    "avg_latency_ms": 162.125
+  },
+  "vLLM-Single": {
+    "model_name": "phi-2",
+    "framework": "vLLM",
+    "num_requests": 200,
+    "total_input_tokens": 4400,
+    "total_output_tokens": 5200,
+    "total_tokens": 9600,
+    "inference_cost": 0.00096,
+    "infrastructure_cost": 0.09,
+    "total_cost": 0.09096,
+    "cost_per_request": 0.0004548,
+    "cost_per_1k_tokens": 0.009475,
+    "avg_latency_ms": 99.0
+  },
+  "OpenAI-GPT3.5": {
+    "model_name": "gpt-3.5-turbo",
+    "framework": "OpenAI",
+    "num_requests": 200,
+    "total_input_tokens": 4400,
+    "total_output_tokens": 5200,
+    "total_tokens": 9600,
+    "inference_cost": 0.01,
+    "infrastructure_cost": 0.0,
+    "total_cost": 0.01,
+    "cost_per_request": 5e-05,
+    "cost_per_1k_tokens": 0.0010416666666666667,
+    "avg_latency_ms": 500.0
+  },
+  "OpenAI-GPT4": {
+    "model_name": "gpt-4",
+    "framework": "OpenAI",
+    "num_requests": 200,
+    "total_input_tokens": 4400,
+    "total_output_tokens": 5200,
+    "total_tokens": 9600,
+    "inference_cost": 0.444,
+    "infrastructure_cost": 0.0,
+    "total_cost": 0.444,
+    "cost_per_request": 0.00222,
+    "cost_per_1k_tokens": 0.04625,
+    "avg_latency_ms": 1000.0
+  }
+}

@@ -1,0 +1,45 @@
+# Prometheus Configuration for vLLM Monitoring
+# Scrapes metrics from vLLM FastAPI server
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: 'vllm-production'
+    environment: 'production'
+
+# Alertmanager configuration (optional)
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets:
+#             - alertmanager:9093
+
+# Load alert rules
+rule_files:
+  - "alert_rules.yml"
+
+# Scrape configurations
+scrape_configs:
+  # vLLM FastAPI server metrics
+  - job_name: 'vllm-server'
+    static_configs:
+      - targets: ['vllm-server:8000']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+    scrape_timeout: 5s
+
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Node exporter for system metrics (optional)
+  # - job_name: 'node'
+  #   static_configs:
+  #     - targets: ['node-exporter:9100']
+
+  # GPU metrics (nvidia-smi exporter, optional)
+  # - job_name: 'gpu'
+  #   static_configs:
+  #     - targets: ['nvidia-exporter:9835']

@@ -1,0 +1,18 @@
+[
+  {
+    "model_name": "microsoft/phi-2",
+    "quantization": "baseline",
+    "precision": "FP16",
+    "compression_ratio": 1.0,
+    "memory_allocated_gb": 19.3,
+    "memory_saved_gb": 0.0,
+    "memory_savings_pct": 0.0,
+    "time_to_first_token_ms": 251.2,
+    "inter_token_latency_ms": 5.02,
+    "tokens_per_second": 199.1,
+    "speedup_vs_baseline": 1.0,
+    "total_time_seconds": 1.26,
+    "num_tokens": 250,
+    "gpu_name": "NVIDIA L4"
+  }
+]

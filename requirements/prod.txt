@@ -1,0 +1,40 @@
+# Production requirements
+# Install with: pip install -r requirements/base.txt -r requirements/prod.txt
+
+# Observability
+langfuse==2.20.0
+phoenix-arize==2.0.0
+opentelemetry-api==1.21.0
+opentelemetry-sdk==1.21.0
+opentelemetry-instrumentation-fastapi==0.42b0
+prometheus-client==0.19.0
+
+# Cloud providers
+google-cloud-storage==2.13.0
+google-cloud-monitoring==2.16.0
+google-cloud-logging==3.8.0
+google-cloud-aiplatform==1.38.1
+
+# Database and caching
+redis==5.0.1
+sqlalchemy==2.0.23
+alembic==1.13.0
+
+# Async processing
+aiohttp==3.9.1
+aiofiles==23.2.1
+aiocache==0.12.2
+
+# Security
+cryptography==41.0.7
+pyjwt==2.8.0
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# Monitoring
+sentry-sdk==1.39.1
+elastic-apm==6.20.0
+
+# Rate limiting
+slowapi==0.1.9
+python-limits==3.6.0

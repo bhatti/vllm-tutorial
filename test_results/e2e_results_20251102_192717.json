@@ -1,0 +1,166 @@
+{
+  "config": {
+    "daily_budget_usd": 10.0,
+    "enable_prefix_caching": true,
+    "quantization": "none"
+  },
+  "results": [
+    {
+      "request_id": "req_001",
+      "prompt_type": "simple_definition",
+      "prompt_length": 15,
+      "model_selected": "phi-2",
+      "tokens_generated": 200,
+      "latency_ms": 4843.724012374878,
+      "cost_usd": 2.0375e-05,
+      "success": true,
+      "error": null,
+      "cached": false
+    },
+    {
+      "request_id": "req_002",
+      "prompt_type": "simple_definition",
+      "prompt_length": 28,
+      "model_selected": "phi-2",
+      "tokens_generated": 200,
+      "latency_ms": 11233.954429626465,
+      "cost_usd": 4.14e-06,
+      "success": true,
+      "error": null,
+      "cached": true
+    },
+    {
+      "request_id": "req_003",
+      "prompt_type": "simple_definition",
+      "prompt_length": 18,
+      "model_selected": "phi-2",
+      "tokens_generated": 200,
+      "latency_ms": 4822.021245956421,
+      "cost_usd": 4.09e-06,
+      "success": true,
+      "error": null,
+      "cached": true
+    },
+    {
+      "request_id": "req_004",
+      "prompt_type": "medium_summary",
+      "prompt_length": 65,
+      "model_selected": "mistral-7b",
+      "tokens_generated": 200,
+      "latency_ms": 4827.319622039795,
+      "cost_usd": 8.65e-06,
+      "success": true,
+      "error": null,
+      "cached": true
+    },
+    {
+      "request_id": "req_005",
+      "prompt_type": "medium_comparison",
+      "prompt_length": 63,
+      "model_selected": "llama-3-8b",
+      "tokens_generated": 200,
+      "latency_ms": 4831.313848495483,
+      "cost_usd": 1.2944999999999999e-05,
+      "success": true,
+      "error": null,
+      "cached": true
+    },
+    {
+      "request_id": "req_006",
+      "prompt_type": "medium_explanation",
+      "prompt_length": 58,
+      "model_selected": "mistral-7b",
+      "tokens_generated": 200,
+      "latency_ms": 4829.811096191406,
+      "cost_usd": 8.580000000000001e-06,
+      "success": true,
+      "error": null,
+      "cached": true
+    },
+    {
+      "request_id": "req_007",
+      "prompt_type": "complex_analysis",
+      "prompt_length": 121,
+      "model_selected": "llama-3-8b",
+      "tokens_generated": 200,
+      "latency_ms": 4835.567951202393,
+      "cost_usd": 1.3815e-05,
+      "success": true,
+      "error": null,
+      "cached": true
+    },
+    {
+      "request_id": "req_008",
+      "prompt_type": "complex_recommendation",
+      "prompt_length": 141,
+      "model_selected": "llama-3-8b",
+      "tokens_generated": 200,
+      "latency_ms": 4839.646816253662,
+      "cost_usd": 1.4115e-05,
+      "success": true,
+      "error": null,
+      "cached": true
+    },
+    {
+      "request_id": "req_009",
+      "prompt_type": "simple_definition_cached",
+      "prompt_length": 12,
+      "model_selected": "phi-2",
+      "tokens_generated": 200,
+      "latency_ms": 4837.273120880127,
+      "cost_usd": 4.060000000000001e-06,
+      "success": true,
+      "error": null,
+      "cached": true
+    },
+    {
+      "request_id": "req_010",
+      "prompt_type": "simple_definition_cached",
+      "prompt_length": 19,
+      "model_selected": "phi-2",
+      "tokens_generated": 200,
+      "latency_ms": 4839.773654937744,
+      "cost_usd": 4.095e-06,
+      "success": true,
+      "error": null,
+      "cached": true
+    },
+    {
+      "request_id": "req_011",
+      "prompt_type": "complex_comprehensive",
+      "prompt_length": 290,
+      "model_selected": "phi-2",
+      "tokens_generated": 200,
+      "latency_ms": 4852.694034576416,
+      "cost_usd": 5.45e-06,
+      "success": true,
+      "error": null,
+      "cached": true
+    }
+  ],
+  "summary": {
+    "total_requests": 11,
+    "successful_requests": 11,
+    "failed_requests": 0,
+    "total_cost_usd": 0.00010031499999999999,
+    "total_tokens": 2200,
+    "avg_latency_ms": 5417.554530230435,
+    "models_used": {
+      "phi-2": 6,
+      "mistral-7b": 2,
+      "llama-3-8b": 3
+    },
+    "requests_by_type": {
+      "simple_definition": 3,
+      "medium_summary": 1,
+      "medium_comparison": 1,
+      "medium_explanation": 1,
+      "complex_analysis": 1,
+      "complex_recommendation": 1,
+      "simple_definition_cached": 2,
+      "complex_comprehensive": 1
+    },
+    "cache_hit_rate": 0.9090909090909091,
+    "budget_remaining_usd": 9.999899685
+  }
+}

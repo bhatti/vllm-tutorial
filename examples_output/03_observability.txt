@@ -1,0 +1,54 @@
+================================================================================
+Quick Observability Demo (Instant)
+================================================================================
+
+📊 Simulating 100 requests...
+✅ Simulation complete!
+
+================================================================================
+📊 Metrics Summary
+================================================================================
+
+Requests: 100
+Success Rate: 95.0%
+Error Rate: 5.0%
+
+Latency Percentiles:
+  P50: 191.6ms
+  P95: 276.7ms
+  P99: 305.8ms
+
+Cost:
+  Total: $0.058665
+  Average: $0.000587
+  Total tokens: 17806
+
+Per-Model Distribution:
+  mistral-7b: 38 requests (38.0%)
+  llama-13b: 36 requests (36.0%)
+  phi-2: 26 requests (26.0%)
+
+================================================================================
+📊 Prometheus Metrics (Sample)
+================================================================================
+# HELP vllm_requests_total Total requests
+vllm_requests_total 100
+
+# HELP vllm_error_rate Error rate
+vllm_error_rate 0.0500
+
+# HELP vllm_latency_p95 P95 latency
+vllm_latency_p95 276.7
+
+# HELP vllm_cost_total Total cost
+vllm_cost_total 0.058665
+
+================================================================================
+✅ Demo Complete!
+================================================================================
+
+💡 In production, these metrics would feed into:
+  - Prometheus for collection
+  - Grafana for visualization
+  - PagerDuty for alerts
+  - CloudWatch/Stackdriver for monitoring

@@ -1,0 +1,30 @@
+# Base requirements for vLLM project
+# Pin versions for reproducibility
+
+# Core vLLM and ML
+vllm==0.5.4
+torch==2.1.2
+transformers==4.36.2
+accelerate==0.25.0
+sentencepiece==0.1.99
+protobuf==4.25.1
+
+# API and serving
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+python-multipart==0.0.6
+
+# Data processing
+pandas==2.1.4
+numpy==1.24.3
+
+# Utilities
+python-dotenv==1.0.0
+pyyaml==6.0.1
+psutil==5.9.6
+tqdm==4.66.1
+
+# Model management
+huggingface-hub==0.20.1
+safetensors==0.4.1
