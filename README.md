@@ -470,13 +470,6 @@ DAILY_BUDGET_USD=100.0
 MONTHLY_BUDGET_USD=3000.0
 ```
 
-## 📚 Documentation
-
-- **[DEPLOYMENT_GUIDE.md](deployment/DEPLOYMENT_GUIDE.md)** - Complete deployment instructions
-- **[COMPREHENSIVE_BLOG_COMPLETE.md](COMPREHENSIVE_BLOG_COMPLETE.md)** - Feature summary and blog outline
-- **[QUANTIZATION_ADDED.md](docs/QUANTIZATION_ADDED.md)** - Quantization guide
-- **[VLLM_TALK_INSIGHTS.md](docs/VLLM_TALK_INSIGHTS.md)** - Research insights
-
 ## 📄 License
 
 This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
