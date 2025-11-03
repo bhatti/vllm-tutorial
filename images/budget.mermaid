@@ -1,0 +1,16 @@
+graph TD
+    R[Request] --> L1{Level 1:<br/>Per-Request<br/>Limit}
+    L1 -->|> $0.50| REJECT[❌ Reject<br/>Too Expensive]
+    L1 -->|≤ $0.50| L2{Level 2:<br/>Daily<br/>Budget}
+    L2 -->|Exceeded| DOWN[⬇️ Downgrade<br/>to Cheaper Model]
+    L2 -->|OK| L3{Level 3:<br/>Monthly<br/>Budget}
+    L3 -->|Exceeded| DOWN
+    L3 -->|OK| PROCESS[✅ Process<br/>Request]
+
+    style R fill:#4CAF50,stroke:#2E7D32,color:#fff
+    style L1 fill:#FF9800,stroke:#E65100,color:#fff
+    style L2 fill:#2196F3,stroke:#1565C0,color:#fff
+    style L3 fill:#9C27B0,stroke:#6A1B9A,color:#fff
+    style REJECT fill:#F44336,stroke:#C62828,color:#fff
+    style DOWN fill:#FFC107,stroke:#FF6F00,color:#000
+    style PROCESS fill:#00BCD4,stroke:#00838F,color:#fff

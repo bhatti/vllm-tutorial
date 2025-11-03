@@ -1,0 +1,24 @@
+graph TD
+    REQ[Request] --> R1{Attempt 1}
+    R1 -->|Success| OK[✅ Return Response]
+    R1 -->|Transient Fail| WAIT1[Wait 1s]
+    WAIT1 --> R2{Attempt 2}
+    R2 -->|Success| OK
+    R2 -->|Fail| WAIT2[Wait 2s]
+    WAIT2 --> R3{Attempt 3}
+    R3 -->|Success| OK
+    R3 -->|Fail| CB{Circuit<br/>Breaker}
+
+    CB -->|Threshold<br/>Reached| OPEN[🔴 Circuit OPEN<br/>Fail Fast]
+    CB -->|Below<br/>Threshold| FB{Fallback}
+
+    FB --> CACHE{Cached<br/>Response?}
+    CACHE -->|Yes| CACHED[Return Cache]
+    CACHE -->|No| SIMPLE[Use Simple Model]
+    SIMPLE --> FINAL[Return Degraded Response]
+
+    style REQ fill:#4CAF50,stroke:#2E7D32,color:#fff
+    style OK fill:#00BCD4,stroke:#00838F,color:#fff
+    style OPEN fill:#F44336,stroke:#C62828,color:#fff
+    style CACHED fill:#9C27B0,stroke:#6A1B9A,color:#fff
+    style FINAL fill:#FFC107,stroke:#FF6F00,color:#000

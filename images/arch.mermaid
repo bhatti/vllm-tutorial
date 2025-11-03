@@ -1,0 +1,47 @@
+graph TB
+    subgraph "Client Applications"
+        A1[Chatbots]
+        A2[Document Analysis]
+        A3[Code Generation]
+    end
+
+    subgraph "Intelligent Router Layer"
+        R[Router Service<br/>Complexity Classification<br/>Budget Enforcement]
+    end
+
+    subgraph "vLLM Model Servers"
+        M1[Phi-2 2.7B<br/>Simple Queries<br/>$0.0001/1K tokens]
+        M2[Mistral-7B<br/>Medium Tasks<br/>$0.0002/1K tokens]
+        M3[Llama-3-8B<br/>Complex Analysis<br/>$0.0003/1K tokens]
+    end
+
+    subgraph "Observability Stack"
+        O1[Prometheus<br/>Metrics]
+        O2[Grafana<br/>Dashboards]
+        O3[Langfuse<br/>LLM Tracing]
+    end
+
+    A1 --> R
+    A2 --> R
+    A3 --> R
+
+    R -->|Simple| M1
+    R -->|Medium| M2
+    R -->|Complex| M3
+
+    M1 --> O1
+    M2 --> O1
+    M3 --> O1
+
+    O1 --> O2
+    M1 --> O3
+    M2 --> O3
+    M3 --> O3
+
+    style R fill:#4CAF50,stroke:#2E7D32,color:#fff
+    style M1 fill:#2196F3,stroke:#1565C0,color:#fff
+    style M2 fill:#FF9800,stroke:#E65100,color:#fff
+    style M3 fill:#F44336,stroke:#C62828,color:#fff
+    style O1 fill:#9C27B0,stroke:#6A1B9A,color:#fff
+    style O2 fill:#00BCD4,stroke:#00838F,color:#fff
+    style O3 fill:#FFEB3B,stroke:#F57F17,color:#000

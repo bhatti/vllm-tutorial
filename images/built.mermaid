@@ -1,0 +1,59 @@
+flowchart TD
+    %% Top Layer
+    A["
+    🧠 **Production Applications**  
+    (Chatbots, Document Analysis, Code Generation, etc.)
+    "]:::apps
+
+    %% Router Layer
+    B["
+    ⚙️ **Intelligent Router Layer**  
+    • Complexity-based routing  
+    • Budget enforcement  
+    • Cost optimization
+    "]:::router
+
+    %% Model Nodes
+    C1["
+    **Phi-2**  
+    vLLM  
+    _(Simple)_
+    "]:::model1
+
+    C2["
+    **Mistral-7B**  
+    vLLM  
+    _(Medium)_
+    "]:::model2
+
+    C3["
+    **Llama-3-8B**  
+    vLLM  
+    _(Complex)_
+    "]:::model3
+
+    %% Observability Layer
+    D["
+    📈 **Observability Layer**  
+    • Prometheus (metrics)  
+    • Grafana (dashboards)  
+    • Langfuse (LLM tracing)
+    "]:::observe
+
+    %% Connections
+    A --> B
+    B --> C1
+    B --> C2
+    B --> C3
+    C1 --> D
+    C2 --> D
+    C3 --> D
+
+    %% Bright Styles (contrast-safe for light/dark)
+    classDef apps fill:#FFEB3B,stroke:#FBC02D,color:#000,stroke-width:2px,rx:10px,ry:10px,font-weight:bold;
+    classDef router fill:#03A9F4,stroke:#0288D1,color:#fff,stroke-width:2px,rx:10px,ry:10px,font-weight:bold;
+    classDef model1 fill:#4CAF50,stroke:#2E7D32,color:#fff,stroke-width:2px,rx:10px,ry:10px,font-weight:bold;
+    classDef model2 fill:#FF9800,stroke:#E65100,color:#fff,stroke-width:2px,rx:10px,ry:10px,font-weight:bold;
+    classDef model3 fill:#E91E63,stroke:#AD1457,color:#fff,stroke-width:2px,rx:10px,ry:10px,font-weight:bold;
+    classDef observe fill:#9C27B0,stroke:#6A1B9A,color:#fff,stroke-width:2px,rx:10px,ry:10px,font-weight:bold;
+

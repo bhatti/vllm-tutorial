@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant C as Client
+    participant V as vLLM
+    participant G as GPU Memory
+
+    Note over C,G: First Request (Cache Miss)
+    C->>V: Request with System Prompt (500 tokens) + Query (50 tokens)
+    V->>G: Process 550 tokens
+    G->>G: Cache System Prompt (500 tokens)
+    V->>C: Response (Cost: 550 tokens)
+
+    %% Blank line before second note
+    Note over C,G: Subsequent Requests (Cache Hit)
+    C->>V: Same System Prompt + New Query (50 tokens)
+    V->>G: Retrieve cached 500 tokens
+    V->>G: Process only 50 new tokens
+    V->>C: Response (Cost: 50 tokens - 90% savings!)
+
