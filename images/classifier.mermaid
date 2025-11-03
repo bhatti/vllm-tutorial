@@ -1,0 +1,17 @@
+graph LR
+    Q[User Query] --> C{Complexity<br/>Classifier}
+
+    C -->|Simple<br/>Definitions<br/>Quick facts| P[Phi-2 2.7B<br/>~$0.0001/1K tokens<br/>~50ms latency]
+    C -->|Medium<br/>Summaries<br/>Comparisons| M[Mistral-7B<br/>~$0.0002/1K tokens<br/>~100ms latency]
+    C -->|Complex<br/>Analysis<br/>Reasoning| L[Llama-3-8B<br/>~$0.0003/1K tokens<br/>~200ms latency]
+
+    P --> R[Response]
+    M --> R
+    L --> R
+
+    style Q fill:#4CAF50,stroke:#2E7D32,color:#fff
+    style C fill:#FF9800,stroke:#E65100,color:#fff
+    style P fill:#2196F3,stroke:#1565C0,color:#fff
+    style M fill:#9C27B0,stroke:#6A1B9A,color:#fff
+    style L fill:#F44336,stroke:#C62828,color:#fff
+    style R fill:#00BCD4,stroke:#00838F,color:#fff
